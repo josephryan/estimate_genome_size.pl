@@ -32,6 +32,10 @@
 
 <p>These scripts can be used to estimate genome size and coverage from fastq files containing sequencing reads</p>
 
+<p>you will need JELLYFISH: http://www.cbcb.umd.edu/software/jellyfish/</p>
+
+<p>For jellyplot.pl you will need GNUPLOT: http://www.gnuplot.info/</p>
+
 <p>A typical session:</p>
 
 <pre><code>$ # count k-mers (see jellyfish documentation for options)
@@ -51,6 +55,28 @@ find_valleys.pl fastq.counts_0.histo
 # estimate the size and coverage
 estimate_genome_size.pl --kmer=31 --peak=42 --fastq=reads1.fastq.gz reads2.fastq.gz
 </code></pre>
+
+<p>NOTES about the typical session:</p>
+<p>1. it is helpful to run with multiple kmer sizes to see if this has an effect (change -m in first jellyfish command)</p>
+<p>2. -s should be adjusted to the size of your RAM in the first jellyfish command (see <a href="http://www.cbcb.umd.edu/software/jellyfish/jellyfish-manual-1.1.pdf">jellyfish manual</a>)</p>
+<p>3. The first jellyfish command includes '-U 500' this tells jellyfish not to output k-mer with count > 500. It is recommended to run without this the first time and then rerun with an uppercount that includes the first peak. This makes the files much easier to manage.</p>
+
+<h3>See the following for the principle behind the script</h3>
+<p><a href="https://banana-slug.soe.ucsc.edu/bioinformatic_tools:jellyfish">https://banana-slug.soe.ucsc.edu/bioinformatic_tools:jellyfish</a></p>
+
+<p><a href="http://seqanswers.com/forums/archive/index.php/t-10988.html">http://seqanswers.com/forums/archive/index.php/t-10988.html</a></p>
+
+<p><a href="https://banana-slug.soe.ucsc.edu/bioinformatic_tools:quake">https://banana-slug.soe.ucsc.edu/bioinformatic_tools:quake</a></p>
+
+<h3>If you don't believe this works</h3>
+
+<p>Simulate some next generation data based on an already-sequenced genome. I used the program ART to do this with the Hydra magnipapillata genome:</p>
+
+<p><a href="http://www.niehs.nih.gov/research/resources/software/biostatistics/art/">http://www.niehs.nih.gov/research/resources/software/biostatistics/art/</a></p>
+
+<p><pre>art_illumina --paired --in Hm_genomic.fa --out Hm_genomic_wildtype --len 100 --fcov 43 --mflen 180 --sdev 3.5</pre></p>
+
+<p>I also simulated perfect paired-end data with a sliding window. In both cases I recovered the correct coverage and size.</p>
 
 <h3>Authors and Contributors</h3>
 
