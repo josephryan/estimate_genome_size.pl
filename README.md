@@ -72,12 +72,15 @@ https://banana-slug.soe.ucsc.edu/bioinformatic_tools:quake
 WHAT IF YOU DON'T GET A SECOND PEAK?
 ------------
 
+See this interesting discussion at SeqAnswers:
+http://seqanswers.com/forums/showthread.php?t=41874
+
 I have been asked frequently about the case of no second peak in histogram plots.
 My stock answer has been that you probably don’t have enough coverage and
 in most cases that means your genome is huge. But, I have never really
-tested this (it would be easy enough to do this with simulated reads, but
-I have not gotten around to it).  I did have a case where I got no peak
-and when I added more sequence later and reran the analysis, a peak appeared. 
+tested this (it would be easy enough to do this with simulated reads).
+I did have a case where I got no peak and when I added more sequence later
+and reran the analysis, a peak appeared. 
 
 My latest suggestion is to run a quick assembly with SOAP or something and
 then align the reads to the contigs. Check out a few of the contigs (maybe
