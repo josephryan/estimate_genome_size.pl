@@ -1,3 +1,7 @@
+NOTE
+======
+VERSIONS 0.03 and below do not handle compressed files correctly and therefore give erroneous size estimations.  If you used uncompressed files, there is no problem.  this has been fixed in VERSION 0.04.  -- November 12, 2014
+
 estimate_genome_size.pl
 ======
 
