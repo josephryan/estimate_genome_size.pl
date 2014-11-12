@@ -22,9 +22,13 @@ use strict;
 use warnings;
 use Getopt::Long;
 use Pod::Usage;
+use FileHandle;
+use IO::Uncompress::Gunzip qw($GunzipError);
+use IO::Uncompress::Bunzip2 qw($Bunzip2Error);
+use IO::Uncompress::Unzip qw($UnzipError);
 
-our $VERSION = 0.03;
-our $AUTHOR  = 'Joseph F. Ryan <jfryan@yahoo.com>';
+our $VERSION = 0.04;
+our $AUTHOR  = 'Joseph F. Ryan <joseph.ryan@whitney.ufl.edu>';
 
 MAIN: {
     my $kmer = '';
@@ -55,24 +59,43 @@ MAIN: {
 sub get_readlen_and_total_nts {
     my $ra_files = shift;
     my $counter = 0;
-     
     my $readlen = 0;
+    my $fh = {};
+
     foreach my $file (@{$ra_files}) {
         $counter += 2;
-        open IN, $file or die "cannot open $file:$!";
-        my $devnull = <IN>;
-        my $read = <IN>;
+        $fh = get_fh($file); 
+        my $devnull = <$fh>;
+        my $read = <$fh>;
         if ($counter == 1) {
             $readlen = length($read);
         } else {
             die "fastqs have different readlens" unless ($readlen = length($read));
         }
-        while (<IN>) {
+        while (<$fh>) {
             $counter ++;
         }
     }
     my $total = ($counter / 4) * $readlen;
     return ($readlen,$total);
+}
+
+sub get_fh {
+    my $file = shift;
+    my $fh = {};
+    if ($file =~ m/\.gz$/i) {
+        $fh = IO::Uncompress::Gunzip->new($file)
+            or die "IO::Uncompress::Gunzip of $file failed: $GunzipError\n";
+    } elsif ($file =~ m/\.bz2$/i) {
+        $fh = IO::Uncompress::Bunzip2->new($file)
+            or die "IO::Uncompress::Bunzip2 of $file failed: $Bunzip2Error\n";
+    } elsif ($file =~ m/\.zip$/i) {
+        $fh = IO::Uncompress::Unzip->new($file)
+            or die "IO::Uncompress::Unzip of $file failed: $UnzipError\n";
+    } else {
+        $fh = FileHandle->new($file,'r');
+        die "cannot open $file: $!\n" unless(defined $fh);
+    }
 }
                             
 sub version {
