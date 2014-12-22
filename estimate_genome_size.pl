@@ -27,7 +27,7 @@ use IO::Uncompress::Gunzip qw($GunzipError);
 use IO::Uncompress::Bunzip2 qw($Bunzip2Error);
 use IO::Uncompress::Unzip qw($UnzipError);
 
-our $VERSION = 0.04;
+our $VERSION = 0.05;
 our $AUTHOR  = 'Joseph F. Ryan <joseph.ryan@whitney.ufl.edu>';
 
 MAIN: {
@@ -67,10 +67,11 @@ sub get_readlen_and_total_nts {
         $fh = get_fh($file); 
         my $devnull = <$fh>;
         my $read = <$fh>;
-        if ($counter == 1) {
+        chomp $read;
+        if ($counter == 2) {
             $readlen = length($read);
         } else {
-            die "fastqs have different readlens" unless ($readlen = length($read));
+            die "fastqs have different readlens" unless ($readlen == length($read));
         }
         while (<$fh>) {
             $counter ++;
@@ -96,6 +97,7 @@ sub get_fh {
         $fh = FileHandle->new($file,'r');
         die "cannot open $file: $!\n" unless(defined $fh);
     }
+    return $fh;
 }
                             
 sub version {
