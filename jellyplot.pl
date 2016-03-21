@@ -96,7 +96,7 @@ B<jellyplot.pl> - generate PDF plot of histogram
 
 =head1 AUTHOR
 
-Joseph F. Ryan <josephryan@yahoo.com>
+Joseph F. Ryan <joseph.ryan@whitney.ufl.edu>
 
 =head1 SYNOPSIS
 
@@ -108,7 +108,7 @@ generate PDF plot of histogram data from jellyfish data. Requires gnuplot
 
 =head1 BUGS
 
-Please report them to <josephryan@yahoo.com>
+Please report them to <joseph.ryan@whitney.ufl.edu>
 
 =head1 COPYRIGHT
 
