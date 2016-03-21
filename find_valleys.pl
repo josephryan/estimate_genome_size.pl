@@ -68,7 +68,7 @@ B<find_valleys.pl> - identify possible peaks in histogram data
 
 =head1 AUTHOR
 
-Joseph F. Ryan <josephryan@yahoo.com>
+Joseph F. Ryan <joseph.ryan@whitney.ufl.edu>
 
 =head1 SYNOPSIS
 
