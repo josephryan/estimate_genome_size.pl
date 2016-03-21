@@ -23,11 +23,9 @@ To install this script and documentation type the following:
 
 To install without root privelages try:
 
-   perl Makefile.PL PREFIX=/home/myuser/scripts
-   make
-   make test
-   make install
-
+    perl Makefile.PL PREFIX=/home/myuser/scripts
+    make
+    make install
 
 RUN
 ---
