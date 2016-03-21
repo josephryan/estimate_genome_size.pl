@@ -116,7 +116,7 @@ B<estimate_genome_size.pl> - use jellyfish peak and fastq files to estimate geno
 
 =head1 AUTHOR
 
-Joseph F. Ryan <josephryan@yahoo.com>
+Joseph F. Ryan <joseph.ryan@whitney.ufl.edu>
 
 =head1 SYNOPSIS
 
