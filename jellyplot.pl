@@ -28,7 +28,7 @@ use IO::File;
 use POSIX qw(tmpnam);
 
 our $VERSION = 0.03;
-our $AUTHOR  = 'Joseph F. Ryan <jfryan@yahoo.com>';
+our $AUTHOR  = 'Joseph F. Ryan <joseph.ryan@whitney.ufl.edu>';
 
 our $TMP_CMD_FILE = '';
 our $TMP_TAB_FILE = '';
