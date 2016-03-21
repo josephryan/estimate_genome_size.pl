@@ -154,7 +154,7 @@ estimate_genome_size.pl --kmer=31 --peak=42 --fastq=reads1.fastq.gz reads2.fastq
 
 =head1 BUGS
 
-Please report them to <josephryan@yahoo.com>
+Please report them to <joseph.ryan@whitney.ufl.edu>
 
 =head1 COPYRIGHT
 
