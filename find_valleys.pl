@@ -21,7 +21,7 @@ use Getopt::Long;
 use Pod::Usage;
 
 our $VERSION = 0.03;
-our $AUTHOR  = 'Joseph F. Ryan <jfryan@yahoo.com>';
+our $AUTHOR  = 'Joseph F. Ryan <joseph.ryan@whitney.ufl.edu>';
 
 MAIN: {
     my $opt_version = 0;
