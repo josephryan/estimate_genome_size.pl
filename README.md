@@ -1,5 +1,9 @@
 NOTE
 ======
+**Multiple peaks in a k-mer plot are indicative of highly repetitive data. This will lead to an underestimate of genome size. Since many genomes are highly repetitive, this software may not be appropriate for your uses.**
+
+NOTE
+======
 VERSIONS 0.03 and below do not handle compressed files correctly and therefore give erroneous size estimations.  If you used uncompressed files, there is no problem.  this has been fixed in VERSION 0.04.  -- November 12, 2014
 
 estimate_genome_size.pl
@@ -78,29 +82,6 @@ SEE THE FOLLOWING FOR THE PRINCIPLE BEHIND THE SCRIPT
 https://banana-slug.soe.ucsc.edu/bioinformatic_tools:jellyfish
 http://seqanswers.com/forums/archive/index.php/t-10988.html
 https://banana-slug.soe.ucsc.edu/bioinformatic_tools:quake
-
-WHAT IF YOU DON'T GET A SECOND PEAK?
-------------
-
-See this interesting discussion at SeqAnswers:
-http://seqanswers.com/forums/showthread.php?t=41874
-
-I have been asked frequently about the case of no second peak in histogram plots.
-My stock answer has been that you probably don’t have enough coverage and
-in most cases that means your genome is huge. But, I have never really
-tested this (it would be easy enough to do this with simulated reads).
-I did have a case where I got no peak and when I added more sequence later
-and reran the analysis, a peak appeared. 
-
-My latest suggestion is to run a quick assembly with SOAP or something and
-then align the reads to the contigs. Check out a few of the contigs (maybe
-some homeobox loci) and make sure things look OK.  You are likely to get
-an very poor assembly if the coverage is too low (CEGMA can help confirm
-this) and the places that assemble are likely to be those that have more
-coverage than average, but you can get a feeling for how much coverage
-those regions have and from that extrapolate a course estimate for the
-size and overall coverage.
-
 
 IF YOU DON'T BELIEVE IT WORKS
 ------------
