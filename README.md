@@ -1,6 +1,14 @@
 NOTE
 ======
-**Multiple peaks in a k-mer plot are indicative of highly repetitive data. This will lead to an underestimate of genome size. Since many genomes are highly repetitive, this software may not be appropriate for your uses.**
+If after generating a plot, your plot has multiple peaks or no clear peaks, you likely have data with high heterozygosity and/or high duplication.  I have not looked further into interpreting the various characteristics of these plots, but if I were to find the time, i would:
+
+1) simulate heterozygosity:
+artificially add lots of heterozygosity to 2 or 3 copies of HumanChromosome22, then use the ART Illumina-sequence simulator to generate reads, and rerun the estimate_genome_size.pl script.  (perhaps run multiple times with increasing levels of "heterozygosity")
+
+2) simulate gene duplication
+take random chunks of HumanChromosome22 (totaling about 10% of the genome) and generate lots of reads on these chunks using the ART Illumina-sequence simulator, and rerun the estimate_genome_size.pl script.  (perhaps run again with 20% or doubling the amount of reads generated on the duplicates).
+
+If you get patterns that look like your scatterplot, it is a decent indication of what is going on with your data.  If you do this and would like to share your findings, I would be happy to point to your github repo or post your data/results in a folder on this repo.
 
 NOTE
 ======
