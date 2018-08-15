@@ -1,5 +1,9 @@
 NOTE
 ======
+These scripts can be instructive for understanding how genome size is estimated from k-mer data. If you are looking for a more automated method for estimating genome size check out: http://qb.cshl.edu/genomescope/
+
+NOTE
+======
 If after generating a plot, your plot has multiple peaks or no clear peaks, you likely have data with high heterozygosity and/or high duplication.  I have not looked further into interpreting the various characteristics of these plots, but if I were to find the time, i would:
 
 1) simulate heterozygosity:
