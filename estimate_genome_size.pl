@@ -148,7 +148,7 @@ jellyplot.pl fastq.counts_0.histo
 find_valleys.pl fastq.counts_0.histo
 
 # estimate the size and coverage
-estimate_genome_size.pl --kmer=31 --peak=42 --fastq=reads1.fastq.gz reads2.fastq.gz
+estimate_genome_size.pl --kmer=31 --peak=42 --fastq=reads1.fastq.gz --fastq=reads2.fastq.gz
 
 =back
 
