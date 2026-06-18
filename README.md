@@ -1,6 +1,6 @@
 NOTE
 ======
-These scripts can be instructive for understanding how genome size is estimated from k-mer data. If you are looking for a more automated method for estimating genome size check out: http://qb.cshl.edu/genomescope/
+These scripts can be instructive for understanding how genome size is estimated from k-mer data. If you are looking for a more automated method for estimating genome size check out: http://genomescope.org/genomescope2.0/
 
 NOTE
 ======
